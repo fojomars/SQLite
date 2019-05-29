@@ -62,9 +62,9 @@ public class MetodosSQLite {
                 Statement stmt = conn.createStatement()) {
             stmt.execute(sql1);
             stmt.execute(sql2);
-            JOptionPane.showMessageDialog(null, "Tabla creada con exito");
+            System.out.println("Tabla creada con exito");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al crear la tabla");
+            System.out.println("Error al crear la tabla");
         }
     }
 
@@ -75,17 +75,17 @@ public class MetodosSQLite {
      * @param nombre
      * @param telefono
      */
-    public void insertarCliente(int id, String nombre, int telefono) {
+    public void insertarCliente(int id, String nombre, long telefono) {
         String sql = "INSERT INTO clientes(id,nombre,telefono) VALUES(?,?,?)";
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             pstmt.setString(2, nombre);
-            pstmt.setInt(3, telefono);
+            pstmt.setLong(3, telefono);
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al introducir los datos");
+            JOptionPane.showMessageDialog(null, "Error al introducir los datos o puede que el id ya este selecionado");
         }
     }
 
@@ -112,14 +112,14 @@ public class MetodosSQLite {
      * @param referencia 
      */
 
-    public void modificarCliente(String nombre, int telefono, int referencia) {
+    public void modificarCliente(String nombre, long telefono, int referencia) {
         String sql = "UPDATE clientes SET nombre = ? , "
                 + "telefono = ? "
                 + "WHERE id = ?";
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, nombre);
-            pstmt.setInt(2, telefono);
+            pstmt.setLong(2, telefono);
             pstmt.setInt(3, referencia);
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente modificado correctamente");
@@ -145,7 +145,7 @@ public class MetodosSQLite {
             while (rs.next()) {
                 resultado = (rs.getInt("id") + ","
                         + rs.getString("nombre") + ","
-                        + rs.getInt("telefono"));
+                        + rs.getLong("telefono"));
             }
             return resultado;
         } catch (SQLException e) {

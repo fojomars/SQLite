@@ -36,7 +36,7 @@ public class Ventana extends javax.swing.JFrame {
 
     }
 
-    public void insertarClientes(int id, String nombre, int telefono) {
+    public void insertarClientes(int id, String nombre, long telefono) {
         m.insertarCliente(id, nombre, telefono);
         String[] client = m.devolverCliente(id).split(",");
         DefaultTableModel model = (DefaultTableModel) tablaClientes.getModel();
@@ -282,7 +282,6 @@ public class Ventana extends javax.swing.JFrame {
             }
             m.borrarCliente(id);
             bMostrarActionPerformed(evt);
-            JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
         }
     }//GEN-LAST:event_bBorrarActionPerformed
 
@@ -294,7 +293,7 @@ public class Ventana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay ninguna fila seleccionada");
         } else {
             String nombre = tNombreM.getText();
-            int telefono = Integer.parseInt(tTelefonoM.getText());
+            long telefono = Long.parseLong(tTelefonoM.getText());
             int id = Integer.parseInt(tablaClientes.getValueAt(fila, 0).toString());
             m.modificarCliente(nombre, telefono, id);
             bMostrarActionPerformed(evt);
@@ -309,7 +308,7 @@ public class Ventana extends javax.swing.JFrame {
             modelo.setColumnIdentifiers(new Object[]{"id", "nombre", "telefono"});
             try {
                 while (rs.next()) {
-                    modelo.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getInt("telefono")});
+                    modelo.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getLong("telefono")});
                 }
                 tablaClientes.setModel(modelo);
             } catch (Exception e) {
@@ -349,18 +348,17 @@ public class Ventana extends javax.swing.JFrame {
 
     private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
         int fila = tablaClientes.getSelectedRow();
-        int id, telefono;
+        int id;
+        long telefono;
         String nombre;
         id = Integer.parseInt(tID.getText());
         nombre = tNombre.getText();
-        telefono = Integer.parseInt(tTelefono.getText());
+        telefono = Long.parseLong(tTelefono.getText());
 
         if(fila == -1){
             m.insertarCliente(id, nombre, telefono);
-           JOptionPane.showMessageDialog(null,"Cliente añadido");
         }
         else{
-            JOptionPane.showMessageDialog(null,"Error al añadir el cliente o puede que el id ya exista");
         }
         
         
