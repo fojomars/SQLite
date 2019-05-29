@@ -36,13 +36,7 @@ public class Ventana extends javax.swing.JFrame {
 
     }
 
-    public void insertarClientes(int id, String nombre, long telefono) {
-        m.insertarCliente(id, nombre, telefono);
-        String[] client = m.devolverCliente(id).split(",");
-        DefaultTableModel model = (DefaultTableModel) tablaClientes.getModel();
-        model.addRow(new Object[]{client[0], client[1], client[2]});
-        nclientes.add(id);
-    }
+
 
     public void borrarTabla(JTable tabla) {
         try {
@@ -293,7 +287,7 @@ public class Ventana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay ninguna fila seleccionada");
         } else {
             String nombre = tNombreM.getText();
-            long telefono = Long.parseLong(tTelefonoM.getText());
+            int telefono = Integer.parseInt(tTelefonoM.getText());
             int id = Integer.parseInt(tablaClientes.getValueAt(fila, 0).toString());
             m.modificarCliente(nombre, telefono, id);
             bMostrarActionPerformed(evt);
@@ -349,11 +343,11 @@ public class Ventana extends javax.swing.JFrame {
     private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
         int fila = tablaClientes.getSelectedRow();
         int id;
-        long telefono;
+        int telefono;
         String nombre;
         id = Integer.parseInt(tID.getText());
         nombre = tNombre.getText();
-        telefono = Long.parseLong(tTelefono.getText());
+        telefono = Integer.parseInt(tTelefono.getText());
 
         if(fila == -1){
             m.insertarCliente(id, nombre, telefono);

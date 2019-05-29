@@ -75,13 +75,13 @@ public class MetodosSQLite {
      * @param nombre
      * @param telefono
      */
-    public void insertarCliente(int id, String nombre, long telefono) {
+    public void insertarCliente(int id, String nombre, int telefono) {
         String sql = "INSERT INTO clientes(id,nombre,telefono) VALUES(?,?,?)";
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             pstmt.setString(2, nombre);
-            pstmt.setLong(3, telefono);
+            pstmt.setInt(3, telefono);
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
         } catch (SQLException e) {
@@ -112,14 +112,14 @@ public class MetodosSQLite {
      * @param referencia 
      */
 
-    public void modificarCliente(String nombre, long telefono, int referencia) {
+    public void modificarCliente(String nombre, int telefono, int referencia) {
         String sql = "UPDATE clientes SET nombre = ? , "
                 + "telefono = ? "
                 + "WHERE id = ?";
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, nombre);
-            pstmt.setLong(2, telefono);
+            pstmt.setInt(2, telefono);
             pstmt.setInt(3, referencia);
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente modificado correctamente");
@@ -145,7 +145,7 @@ public class MetodosSQLite {
             while (rs.next()) {
                 resultado = (rs.getInt("id") + ","
                         + rs.getString("nombre") + ","
-                        + rs.getLong("telefono"));
+                        + rs.getInt("telefono"));
             }
             return resultado;
         } catch (SQLException e) {
@@ -167,10 +167,11 @@ public class MetodosSQLite {
         ArrayList<String> clientes = new ArrayList<>();
         String sql = "SELECT id,nombre,telefono"
                 + " FROM clientes WHERE " + campo + " = ?";
-        
+        System.out.println("sql-"+sql);
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, Integer.parseInt(valor));
+            pstmt.setString(1, valor);
+            
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 clientes.add(rs.getInt("id") + ","
