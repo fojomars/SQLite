@@ -99,8 +99,9 @@ public class MetodosSQLite {
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cliente eliminado con éxito");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al eliminar el cliente");
         }
     }
     
@@ -123,7 +124,7 @@ public class MetodosSQLite {
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente modificado correctamente");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Erro al modificar el cliente");
         }
     }
     
@@ -161,13 +162,15 @@ public class MetodosSQLite {
      * @return 
      */
 
-    public ArrayList<String> consultaClientes(String campo, Object valor) {
+    public ArrayList<String> consultaClientes(String campo, String valor) {
+        System.out.println("campo -"+ campo +" - valor "+valor);
         ArrayList<String> clientes = new ArrayList<>();
         String sql = "SELECT id,nombre,telefono"
-                + " FROM clientes WHERE " + campo + "=?";
+                + " FROM clientes WHERE " + campo + " = ?";
+        
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setObject(1, valor);
+            pstmt.setInt(1, Integer.parseInt(valor));
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 clientes.add(rs.getInt("id") + ","
