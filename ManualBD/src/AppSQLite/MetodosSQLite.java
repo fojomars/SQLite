@@ -54,7 +54,8 @@ public class MetodosSQLite {
     }
 
     /**
-     * Este método crea la tabla en la base de datos. En caso de que ya exista
+     * Este método crea la tabla en la base de datos. 
+     * En caso de que ya exista
      * la borra
      */
     public void crearTablaTienda() {
