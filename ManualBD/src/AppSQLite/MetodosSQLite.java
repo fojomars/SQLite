@@ -14,6 +14,11 @@ import javax.swing.JOptionPane;
  * @author fojomars
  */
 public class MetodosSQLite {
+    
+    /**
+     * Este método se utiliza para crear una base de datos
+     * @param fileName 
+     */
 
 //    public static void createNewDatabase(String fileName) {
 // 
@@ -30,6 +35,8 @@ public class MetodosSQLite {
 //            System.out.println(e.getMessage());
 //        }
 //    }
+    
+    
     /**
      * Este método se utiliza para conectar con la base de datos
      * @return
