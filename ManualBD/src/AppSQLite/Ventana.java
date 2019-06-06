@@ -306,6 +306,11 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bModificarActionPerformed
 
+    /**
+     * Evento del boton motrar que muestra los datos de la tabla de la base de datos
+     * @param evt 
+     */
+    
     private void bMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrarActionPerformed
         borrarTabla(tablaClientes);
         try {
