@@ -139,6 +139,7 @@ public class MetodosSQLite {
     
     /**
      * Método que devuelve el id, nombre y telefono del cliente
+     * 
      * @param id
      * @return 
      */
