@@ -31,8 +31,7 @@ public class MetodosSQLite {
 //        }
 //    }
     /**
-     * Este método sirve para conectar con la base de datos
-     *
+     * Este método se utiliza para conectar con la base de datos
      * @return
      */
     public Connection conectar() {
@@ -163,7 +162,6 @@ public class MetodosSQLite {
      */
 
     public ArrayList<String> consultaClientes(String campo, String valor) {
-        System.out.println("campo -"+ campo +" - valor "+valor);
         ArrayList<String> clientes = new ArrayList<>();
         String sql = "SELECT id,nombre,telefono"
                 + " FROM clientes WHERE " + campo + " = ?";
