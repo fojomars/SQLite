@@ -12,6 +12,11 @@ import java.sql.*;
  * @author fojomars
  */
 public class Mostrar {
+    
+    /**
+     * Método para conectar con la base de datos
+     * @return cn
+     */
     public static Connection getConnection(){
         Connection cn=null;
         try {
@@ -21,6 +26,14 @@ public class Mostrar {
         }
         return cn;
     }
+    
+    /**
+     * Métodos para mostrar los datos de la base de datos en la tabla de la ventana
+     * 
+     * @param consulta
+     * @return
+     * @throws SQLException 
+     */
     
     
     public static ResultSet getTabla(String consulta) throws SQLException {
