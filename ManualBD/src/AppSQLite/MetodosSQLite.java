@@ -167,6 +167,7 @@ public class MetodosSQLite {
     
     /**
      * Método para realizar una consulta tanto de id, nombre y telefono médiante un combo box
+     * 
      * @param campo
      * @param valor
      * @return 
