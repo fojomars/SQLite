@@ -287,6 +287,10 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bBorrarActionPerformed
 
+    /**
+     * Evento del boton Modificar, que modifica una fila de la tabla clientes al seleccionarla
+     * @param evt 
+     */
 
     private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
         int fila = tablaClientes.getSelectedRow();
