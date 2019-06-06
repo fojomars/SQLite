@@ -264,7 +264,12 @@ public class Ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    /**
+     * Boton para borrar
+     * @param evt 
+     */
     //Evento del botón Borrar, que elimina una fila de la tabla alumnos al seleccionarla
     private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
         int fila = tablaClientes.getSelectedRow();
