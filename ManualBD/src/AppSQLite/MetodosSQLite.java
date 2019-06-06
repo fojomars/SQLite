@@ -76,8 +76,8 @@ public class MetodosSQLite {
     }
 
     /**
-     * Este méto sirve para insertar datos en la tabla clientes
-     *
+     * Este méto s utiliza para insertar datos en la tabla clientes
+     * 
      * @param id
      * @param nombre
      * @param telefono
