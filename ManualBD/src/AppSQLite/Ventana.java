@@ -330,6 +330,11 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bMostrarActionPerformed
 
+    /**
+     * Evento del boton Consulta
+     * @param evt 
+     */
+    
     private void bConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultaActionPerformed
         borrarTabla(tablaClientes);
         String opcion = cbConsulta.getSelectedItem().toString();
