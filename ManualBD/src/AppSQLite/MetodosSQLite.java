@@ -115,6 +115,7 @@ public class MetodosSQLite {
     
     /**
      * Método para modicar el nombre y telefono de la tabla clientes
+     * 
      * @param nombre
      * @param telefono
      * @param referencia 
