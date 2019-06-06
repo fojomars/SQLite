@@ -98,6 +98,7 @@ public class MetodosSQLite {
 
     /**
      * Método para borrar datos de la tabla clientes
+     * 
      * @param id
      */
     public void borrarCliente(int id) {
