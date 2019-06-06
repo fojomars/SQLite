@@ -37,7 +37,10 @@ public class Ventana extends javax.swing.JFrame {
     }
 
 
-
+    /**
+     * Método para vaciar la tabla de la ventana
+     * @param tabla 
+     */
     public void borrarTabla(JTable tabla) {
         try {
             DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
