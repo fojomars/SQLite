@@ -362,6 +362,11 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bConsultaActionPerformed
 
+    /**
+     * Evento del boton Añadir que inserta los datos de la tabla de la base de datos
+     * @param evt 
+     */
+    
     private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
         int fila = tablaClientes.getSelectedRow();
         int id;
