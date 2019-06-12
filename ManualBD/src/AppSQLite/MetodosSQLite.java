@@ -46,9 +46,9 @@ public class MetodosSQLite {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println("Conexión establecida");
+            JOptionPane.showMessageDialog(null,"Conexión establecida");
         } catch (SQLException e) {
-            System.out.println("Error al conectar con la base de datos");
+            JOptionPane.showMessageDialog(null,"Error al conectar con la base de datos");
         }
         return conn;
     }
@@ -69,9 +69,9 @@ public class MetodosSQLite {
                 Statement stmt = conn.createStatement()) {
             stmt.execute(sql1);
             stmt.execute(sql2);
-            System.out.println("Tabla creada con exito");
+            JOptionPane.showMessageDialog(null,"Tabla creada con exito");
         } catch (SQLException e) {
-            System.out.println("Error al crear la tabla");
+            JOptionPane.showMessageDialog(null,"Error al crear la tabla");
         }
         return true;
     }
@@ -136,7 +136,7 @@ public class MetodosSQLite {
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente modificado correctamente");
         } catch (SQLException e) {
-            System.out.println("Erro al modificar el cliente");
+            JOptionPane.showMessageDialog(null, "Erro al modificar el cliente");
         }
         return true;
     }
@@ -163,7 +163,7 @@ public class MetodosSQLite {
             }
             return resultado;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             return resultado;
         }
@@ -194,7 +194,7 @@ public class MetodosSQLite {
             }
             return clientes;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             return clientes;
         }

@@ -41,7 +41,7 @@ public class Ventana extends javax.swing.JFrame {
      * Método para vaciar la tabla de la ventana
      * @param tabla 
      */
-    public void borrarTabla(JTable tabla) {
+    public boolean borrarTabla(JTable tabla) {
         try {
             DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
             int filas = tabla.getRowCount();
@@ -51,6 +51,7 @@ public class Ventana extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
         }
+        return true;
     }
 
     /**
