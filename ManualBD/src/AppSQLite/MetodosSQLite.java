@@ -58,7 +58,7 @@ public class MetodosSQLite {
      * En caso de que ya exista
      * la borra
      */
-    public void crearTablaTienda() {
+    public boolean crearTablaTienda() {
         String sql1 = "DROP TABLE IF EXISTS clientes;\n";
         String sql2 = "CREATE TABLE IF NOT EXISTS clientes (\n"
                 + "id integer PRIMARY KEY,\n"
@@ -73,6 +73,7 @@ public class MetodosSQLite {
         } catch (SQLException e) {
             System.out.println("Error al crear la tabla");
         }
+        return true;
     }
 
     /**
@@ -82,7 +83,7 @@ public class MetodosSQLite {
      * @param nombre
      * @param telefono
      */
-    public void insertarCliente(int id, String nombre, int telefono) {
+    public boolean insertarCliente(int id, String nombre, int telefono) {
         String sql = "INSERT INTO clientes(id,nombre,telefono) VALUES(?,?,?)";
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -94,6 +95,7 @@ public class MetodosSQLite {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al introducir los datos o puede que el id ya este selecionado");
         }
+        return true;
     }
 
     /**
@@ -101,7 +103,7 @@ public class MetodosSQLite {
      * 
      * @param id
      */
-    public void borrarCliente(int id) {
+    public boolean borrarCliente(int id) {
         String sql = "DELETE FROM clientes WHERE id=?";
         try (Connection conn = this.conectar();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -111,6 +113,7 @@ public class MetodosSQLite {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al eliminar el cliente");
         }
+        return true;
     }
     
     /**
@@ -121,7 +124,7 @@ public class MetodosSQLite {
      * @param referencia 
      */
 
-    public void modificarCliente(String nombre, int telefono, int referencia) {
+    public boolean modificarCliente(String nombre, int telefono, int referencia) {
         String sql = "UPDATE clientes SET nombre = ? , "
                 + "telefono = ? "
                 + "WHERE id = ?";
@@ -135,6 +138,7 @@ public class MetodosSQLite {
         } catch (SQLException e) {
             System.out.println("Erro al modificar el cliente");
         }
+        return true;
     }
     
     /**
